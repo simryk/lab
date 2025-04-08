@@ -62,13 +62,13 @@ int main() {
     Player hero("Hero", 100, 0);
     Enemy monster("Goblin", 50, "Goblin");
 
-    // Создаем объект Boss
+    // РЎРѕР·РґР°РµРј РѕР±СЉРµРєС‚ Boss
     Boss dragon("Dragon", 150, "Dragon", "Fire Breath");
 
-    // Выводим информацию о персонажах
+    // Р’С‹РІРѕРґРёРј РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ РїРµСЂСЃРѕРЅР°Р¶Р°С…
     hero.displayInfo();
     monster.displayInfo();
-    dragon.displayInfo(); // Вывод информации о боссе
+    dragon.displayInfo(); // Р’С‹РІРѕРґ РёРЅС„РѕСЂРјР°С†РёРё Рѕ Р±РѕСЃСЃРµ
 
     return 0;
 }
