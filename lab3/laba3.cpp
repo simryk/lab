@@ -31,20 +31,20 @@ public:
 };
 
 int main() {
-    Weapon sword("Sword", 50, 3.5);
-    Weapon bow("Bow", 35, 1.5);
-    Weapon axe("Axe", 65, 4.0);
+    Weapon spear("Spear", 50, 3.5);
+    Weapon axe("Axe", 35, 1.5);
+    Weapon knife("knife", 65, 1.0);
 
     // Демонстрация перегрузки оператора +
-    Weapon combinedWeapon = sword + bow;
+    Weapon combinedWeapon = spear + axe;
     std::cout << combinedWeapon << std::endl; // Вывод нового оружия
 
     // Демонстрация перегрузки оператора >
-    if (axe > sword) {
-        std::cout << "Axe is stronger than Sword!" << std::endl;
+    if (knife > axe) {
+        std::cout << "Knife is stronger than axe" << std::endl;
     }
     else {
-        std::cout << "Sword is stronger than or equal to Axe!" << std::endl;
+        std::cout << "Axe is stronger than or equal to Knife!" << std::endl;
     }
 
     return 0;
