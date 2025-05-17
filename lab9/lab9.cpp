@@ -33,7 +33,7 @@ public:
     }
 
     void displayInventory() const {
-        std::cout << "\n🎒 Inventory:" << std::endl;
+        std::cout << "\n Inventory:" << std::endl;
         for (const auto& item : items) {
             std::cout << "- " << *item << std::endl;
         }
@@ -533,14 +533,14 @@ public:
                 Character::logger.log(hero.getName() + " used Health Potion.");
             }
             else {
-                std::cout << "❌ No potions available.\n";
+                std::cout << " No potions available.\n";
             }
         }
         else if (choice == 0) {
-            std::cout << "↩️ Returning to main menu...\n";
+            std::cout << " Returning to main menu...\n";
         }
         else {
-            std::cout << "❌ Invalid choice.\n";
+            std::cout << " Invalid choice.\n";
         }
     }
 };
