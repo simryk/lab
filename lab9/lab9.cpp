@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <string>
 #include <vector>
 #include <memory>
@@ -65,7 +65,7 @@ public:
 
     bool hasAxe() const {
         for (const auto& item : items) {
-            if (*item == "Battle Axe") return true;
+            if (*item == "Golden Axe") return true;
         }
         return false;
     }
@@ -235,8 +235,8 @@ public:
 
     void attackEnemy(Character& enemy) override {
         if (rand() % 100 < 20) {
-            Character::logger.log("🛡️ Goblin dodges the attack!");
-            std::cout << "🛡️ Goblin dodges the attack!" << std::endl;
+            Character::logger.log(" Goblin dodges the attack!");
+            std::cout << " Goblin dodges the attack!" << std::endl;
             return;
         }
 
@@ -265,7 +265,7 @@ public:
         int damage = getAttack() - enemy.getDefense();
         if (rand() % 100 < 30) {
             damage += 10;
-            Character::logger.log("🔥 Fire Breath!");
+            Character::logger.log(" Fire Breath!");
         }
 
         if (damage > 0) {
@@ -292,7 +292,7 @@ public:
         int damage = getAttack() - enemy.getDefense();
         if (rand() % 100 < 20) {
             damage += 5;
-            Character::logger.log("💀 Bone Breaker!");
+            Character::logger.log(" Bone Breaker!");
         }
 
         if (damage > 0) {
@@ -348,7 +348,7 @@ public:
                 << monster->getDefense() << "\n";
         }
 
-        std::cout << "💾 Game saved.\n";
+        std::cout << " Game saved.\n";
     }
 
     static Character loadGame(Inventory& inventory,
@@ -449,7 +449,7 @@ public:
                 std::cin >> targetChoice;
 
                 if (targetChoice < 1 || targetChoice > monsters.size()) {
-                    std::cout << "❌ Invalid choice.\n";
+                    std::cout << " Invalid choice.\n";
                     continue;
                 }
 
@@ -457,19 +457,19 @@ public:
                 battle(hero, target);
 
                 if (!target.isAlive()) {
-                    Character::logger.log("✅ Defeated " + target.getType());
+                    Character::logger.log(" Defeated " + target.getType());
                     hero.gainExperience(50);
 
                     if (rand() % 100 < 30) {
                         inventory.addItem("Health Potion");
-                        Character::logger.log("🧪 Health Potion added to inventory.");
+                        Character::logger.log(" Health Potion added to inventory.");
                     }
 
                     if (target.getType() == "Skeleton") {
                         Skeleton& skel = dynamic_cast<Skeleton&>(target);
                         if (skel.dropsAxe()) {
-                            inventory.addItem("Battle Axe");
-                            Character::logger.log("🗡️ Battle Axe added to inventory.");
+                            inventory.addItem("Golden Axe");
+                            Character::logger.log(" Golden Axe added to inventory.");
                         }
                     }
 
@@ -480,15 +480,15 @@ public:
                 useItem(hero);
             }
             else {
-                std::cout << "❌ Invalid menu choice.\n";
+                std::cout << " Invalid menu choice.\n";
             }
         }
 
         if (hero.isAlive() && monsters.empty()) {
-            std::cout << "🏆 You defeated all enemies!\n";
+            std::cout << " You defeated all enemies!\n";
         }
         else if (!hero.isAlive()) {
-            std::cout << "☠️ Game over...\n";
+            std::cout << " Game over...\n";
         }
     }
 
@@ -504,12 +504,12 @@ public:
             }
         }
 
-        std::cout << "✅ Game loaded!\n";
+        std::cout << " Game loaded!\n";
         start();
     }
 
     void battle(Character& hero, Monster& enemy) {
-        Character::logger.log("⚔️ Battle started between " + hero.getName() + " and " + enemy.getName() + "!");
+        Character::logger.log(" Battle started between " + hero.getName() + " and " + enemy.getName() + "!");
 
         while (hero.isAlive() && enemy.isAlive()) {
             hero.attackEnemy(enemy);
